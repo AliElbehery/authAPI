@@ -9,3 +9,10 @@ POST  http://127.0.0.1:8000/accounts/login/
 Content-Type: application/json
 
 {"username":"ali1","password":"Ali123"}
+
+
+###
+
+GET http://127.0.0.1:8000/accounts/token_back/
+Content-Type: application/json
+Authorization: Token 6cda0e00b7c58466e9f6c6aea5afa3c0597818d1

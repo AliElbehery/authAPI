@@ -35,6 +35,12 @@ def login(request):
     serializer= UserSerializer(user)
     return Response({'token': token.key, 'user': serializer.data}, status= status.HTTP_202_ACCEPTED)
 
+@api_view(['GET'])
+@authentication_classes([TokenAuthentication, SessionAuthentication])
+@permission_classes([IsAuthenticated])
+def token_back(request):
+    return Response('passed for {}'.format(request.user.email))
+
 class UserViewSet(viewsets.ModelViewSet):
     queryset= User.objects.all()
     serializer_class= UserSerializer
